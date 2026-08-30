@@ -40,6 +40,27 @@ structured evidence, deterministic services calculate ratios and check
 guidelines, and the application prepares a recommendation for human judgment.
 The copilot assists throughout the review; it never owns the lending decision.
 
+## The story through agents, tools, and resources
+
+![Hand-drawn story connecting underwriting agents, tools, and resources](docs/images/agent-tools-resources-story.png)
+
+The graph behaves like a workshop relay. An **agent** owns a bounded reasoning
+step, invokes deterministic or optional provider-backed **tools**, and grounds
+its output in traceable **resources**. Typed state carries the evidence to the
+next specialist; the final handoff belongs to the human underwriter.
+
+| Story chapter | Agent | Tools | Resources and outputs |
+|---|---|---|---|
+| Understand the package | Document intake and requirement agents | PDF parsing, classification, structured extraction, inventory checks | Source PDFs, parsed documents, missing-evidence list |
+| Verify the borrower | Borrower router plus income, asset, and liability specialists | Income normalization, asset verification, debt aggregation | Application, W-2/tax evidence, statements, credit report, typed analyses |
+| Understand the collateral | Property analysis and research agents | Contract/appraisal comparison, optional address-only cited search | Purchase agreement, appraisal, public citations, discrepancies |
+| Calculate and interpret policy | Calculation and policy agents | Deterministic DTI/LTV functions, hashing or Pinecone vector search | Canonical financial inputs, guideline corpus, embeddings, retrieved rule IDs |
+| Reconcile and control the flow | Reconciliation, exception, and orchestrator nodes | Provenance matching, exception normalization, `interrupt()`, checkpoint/resume | Canonical facts, conditions, human response, workflow events |
+| Prepare the handoff | Summary agent and Streamlit reviewer workspace | Deterministic or optional model narration, evidence rendering, activity log | Evidence-backed recommendation for human judgment |
+
+The distinction is intentional: agents coordinate bounded judgment, tools do
+the concrete work, and resources keep every important conclusion grounded.
+
 ## Detailed architecture
 
 The application uses a layered architecture so the UI, workflow, domain rules,
