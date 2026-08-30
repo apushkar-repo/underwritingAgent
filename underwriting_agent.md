@@ -10,6 +10,32 @@ for a qualified underwriter.
 The system is decision support. It must never autonomously approve or deny a
 loan. All bundled documents and records are synthetic.
 
+## Project in one sentence
+
+My agent helps a mortgage underwriter** complete **a multi-step
+purchase-loan package review—from document intake through borrower, collateral,
+calculation, policy, exception, and recommendation review** in **a Streamlit
+reviewer workspace**, replacing **the manual workflow of opening documents one
+at a time, re-keying facts into worksheets, calculating ratios, searching policy
+guides, reconciling discrepancies, and assembling review notes—a process that
+can consume hours and makes evidence easy to lose**. It does **document
+classification and extraction, financial verification, collateral comparison,
+DTI/LTV calculation, guideline retrieval, evidence reconciliation, condition
+drafting, and recommendation assembly on its own using six tool families:
+PDF/structured extraction, financial verification, deterministic calculators,
+vector retrieval, cited property search, and LangGraph checkpointing with audit
+logging**; it hands off to a human **when documents or required evidence are
+missing, when material exceptions need judgment, and before any final lending
+decision**. I will know it works when **an underwriter can review a complete
+synthetic package, resolve any prompted handoffs, and reach an evidence-backed
+human decision in under five minutes with **at least 95% agreement with
+the governed test set for extracted facts and exception routing, and 100%
+correct escalation of cases that require human review**.
+
+The final time and accuracy figures are product acceptance targets. They must be
+validated through timed usability studies and the evaluation harness before
+being presented as achieved performance.
+
 ## Implemented scope
 
 - Purchase mortgages with salaried, self-employed, and mixed-income paths.
