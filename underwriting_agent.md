@@ -70,13 +70,16 @@ The copilot assists throughout the review; it never owns the lending decision.
 
 ![Hand-drawn story connecting underwriting agents, tools, and resources](docs/images/agent-tools-resources-story.png)
 
-The graph behaves like a workshop relay. An **agent** owns a bounded reasoning
-step, invokes deterministic or optional provider-backed **tools**, and grounds
-its output in traceable **resources**. Typed state carries the evidence to the
-next specialist; the final handoff belongs to the human underwriter.
+The graph behaves like a workshop relay directed by the **LangGraph
+orchestrator**. The orchestrator routes each phase, carries shared state,
+checkpoints progress, and pauses for human input. Within that flow, an **agent**
+owns a bounded reasoning step, invokes deterministic or optional
+provider-backed **tools**, and grounds its output in traceable **resources**.
+The final handoff belongs to the human underwriter.
 
 | Story chapter | Agent | Tools | Resources and outputs |
 |---|---|---|---|
+| Coordinate the full journey | LangGraph orchestrator | Conditional edges, `interrupt()`, `Command(resume=...)`, checkpointing | Shared typed state, `thread_id`, AI and human workflow events |
 | Understand the package | Document intake and requirement agents | PDF parsing, classification, structured extraction, inventory checks | Source PDFs, parsed documents, missing-evidence list |
 | Verify the borrower | Borrower router plus income, asset, and liability specialists | Income normalization, asset verification, debt aggregation | Application, W-2/tax evidence, statements, credit report, typed analyses |
 | Understand the collateral | Property analysis and research agents | Contract/appraisal comparison, optional address-only cited search | Purchase agreement, appraisal, public citations, discrepancies |

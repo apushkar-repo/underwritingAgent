@@ -47,7 +47,7 @@ RECOMMENDATION_LABELS = {
 
 
 st.set_page_config(
-    page_title="Underwriting Review Workspace",
+    page_title="Underwriting Copilot",
     page_icon="🏠",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -423,7 +423,7 @@ def render_active_workflow() -> None:
 
 initialize_session()
 
-st.title("Underwriting Review Workspace")
+st.title("Underwriting Copilot")
 st.write(
     "Evidence-backed mortgage analysis with deterministic calculations, cited policy, "
     "optional property research, and explicit human review checkpoints."
